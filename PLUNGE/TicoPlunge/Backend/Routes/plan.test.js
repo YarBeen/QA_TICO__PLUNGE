@@ -91,12 +91,23 @@ describe("Plan Routes Validation", () => {
     );
   });
 
-  it("should return 400 if the model doesnt validate", async () => {
+  it("should return 400 if the services are missing", async () => {
     const res = await request(app).post("/api/plan").send({
-      name: "",
-      services: [],
-      price: -1,
+      name: "No service Plan",
+      services: "",
+      price: 109.99,
     });
+
+    expect(res.status).toBe(400);
+  });
+  it("should return 400 if the price is negative", async () => {
+    const res = await request(app)
+      .post("/api/plan")
+      .send({
+        name: "Negative Price Plan",
+        services: [{ service: "605c72adf2d9f2a48c39e42e", credits: 20 }],
+        price: -1,
+      });
 
     expect(res.status).toBe(400);
   });
