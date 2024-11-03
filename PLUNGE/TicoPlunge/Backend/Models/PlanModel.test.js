@@ -23,13 +23,58 @@ describe("Plan Model Validation", () => {
       }*/
   });
 
-  it("should pass validation with correct data", () => {
+  it("Should faild, if credits are negative", () => {
     const validPlanData = {
       name: "Basic Plan",
       services: [
         { service: "ABC", credits: -10 },
         { service: "605c72adf2d9f2a48c39e42f", credits: -20 },
       ],
+      price: 49.99,
+    };
+
+    const { error, value } = validatePlan(validPlanData);
+
+    expect(error).toBeDefined();
+    expect(value).toEqual(validPlanData);
+  });
+
+  it("Should fail, if name is empty", () => {
+    const validPlanData = {
+      name: "",
+      services: [
+        { service: "ABC", credits: 10 },
+        { service: "605c72adf2d9f2a48c39e42f", credits: 20 },
+      ],
+      price: 49.99,
+    };
+
+    const { error, value } = validatePlan(validPlanData);
+
+    expect(error).toBeDefined();
+    expect(value).toEqual(validPlanData);
+  });
+
+  it("Should fail, if price is negative", () => {
+    const validPlanData = {
+      name: "",
+      services: [
+        { service: "ABC", credits: 10 },
+        { service: "605c72adf2d9f2a48c39e42f", credits: 20 },
+      ],
+      price: -49.99,
+    };
+
+    const { error, value } = validatePlan(validPlanData);
+
+    expect(error).toBeDefined();
+    expect(value).toEqual(validPlanData);
+  });
+
+  it("Should fail, if services is empty", () => {
+    const validPlanData = {
+      name: "",
+      services: [],
       price: 49.99,
     };
 
