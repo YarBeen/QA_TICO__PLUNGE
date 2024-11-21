@@ -1,4 +1,4 @@
-package com.QA.fase3.ticoPlunge;
+package com.QA.fase3.ticoPlunge.tests;
 
 import static org.junit.Assert.*;
 
@@ -8,6 +8,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+
+import com.QA.fase3.ticoPlunge.Pages.FeedBackPage;
 
 public class FeedBackTest {
 	private WebDriver driver;

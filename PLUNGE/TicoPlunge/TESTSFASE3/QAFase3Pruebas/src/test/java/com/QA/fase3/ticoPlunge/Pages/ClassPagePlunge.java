@@ -1,4 +1,4 @@
-package com.QA.fase3.ticoPlunge;
+package com.QA.fase3.ticoPlunge.Pages;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;

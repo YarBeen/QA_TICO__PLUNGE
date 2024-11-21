@@ -1,4 +1,4 @@
-package com.QA.fase3.ticoPlunge;
+package com.QA.fase3.ticoPlunge.Pages;
 
 import static org.junit.Assert.assertEquals;
 

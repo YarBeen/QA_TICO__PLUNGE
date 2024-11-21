@@ -1,10 +1,12 @@
-package com.QA.fase3.ticoPlunge;
+package com.QA.fase3.ticoPlunge.Pages;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPagePlunge extends Base{
+import com.QA.fase3.ticoPlunge.Base2;
+
+public class LoginPagePlunge extends Base2{
 	public String adminEmail = "yarman2005@gmail.com";
 	public String adminPassword = "1234.aD$%";
 	public String clientEmail = "yarman2006@gmail.com";

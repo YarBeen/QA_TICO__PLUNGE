@@ -1,4 +1,4 @@
-package com.QA.fase3.ticoPlunge;
+package com.QA.fase3.ticoPlunge.tests;
 
 import static org.junit.Assert.*;
 
@@ -7,18 +7,20 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
-public class LoginAsAdmin_Test {
+import com.QA.fase3.ticoPlunge.Pages.LoginPagePlunge;
+
+public class Register_Test {
 	private WebDriver driver;
-	LoginPagePlunge adminDashBoard;
+	LoginPagePlunge registerPage;
 
 	
 
 	@Before
 	public void setUp() throws Exception {
-		adminDashBoard = new LoginPagePlunge(driver);
+		registerPage = new LoginPagePlunge(driver);
 		
-		driver = adminDashBoard.chromeDriverConnection();
-		adminDashBoard.visit("http://localhost:3000/");
+		driver = registerPage.chromeDriverConnection();
+		registerPage.visit("http://localhost:3000/");
 		Thread.sleep(2000);
 	}
 
@@ -28,22 +30,14 @@ public class LoginAsAdmin_Test {
 	}
 //Some fields are likely to contain errors. Fix errors and try again.
 	@Test
-	public void AdminCanLogin() throws InterruptedException {
-		adminDashBoard.clickLoginLink();
+	public void cantRegisterWithMissingSpecialCharacterInPassword() throws InterruptedException {
+		registerPage.clickLoginLink();
 		Thread.sleep(2000);
-		adminDashBoard.SignInAsAdmin();
+		registerPage.clickRegisterButton();
 		Thread.sleep(2000);
-		assertEquals("Lista de Usuarios",adminDashBoard.getListaUsuariosLinkText());
-        
-	}
-	
-	@Test
-	public void AdminCantLoginWithIncorrectPassword() throws InterruptedException {
-		adminDashBoard.clickLoginLink();
+		registerPage.BadRegister();
 		Thread.sleep(2000);
-		adminDashBoard.BadSignInAsAdmin();
-		Thread.sleep(2000);
-		assertTrue(adminDashBoard.isErrorIconDisplayed());
+		assertTrue(registerPage.isErrorIconDisplayed());
         
 	}
 /*	@Test
