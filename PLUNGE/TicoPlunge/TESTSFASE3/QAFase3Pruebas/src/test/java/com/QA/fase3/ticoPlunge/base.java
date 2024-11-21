@@ -58,7 +58,12 @@ public class base {
 	public void click(WebElement element) {
 		element.click();
 	}
-	
+	public String getValue(WebElement element) {
+		return element.getAttribute("value");
+	}
+	public String getValue(By locator) {
+		return driver.findElement(locator).getAttribute("value");
+	}
 	public Boolean isDisplayed(By locator) {
 		try {
 			return driver.findElement(locator).isDisplayed();
@@ -67,6 +72,13 @@ public class base {
 		}
 		
 	}
+
+	public void clearText ( By locator) {
+		driver.findElement(locator).clear();
+		
+	}
+	
+	
 	
 	public void visit(String url) {
 		driver.get(url);
