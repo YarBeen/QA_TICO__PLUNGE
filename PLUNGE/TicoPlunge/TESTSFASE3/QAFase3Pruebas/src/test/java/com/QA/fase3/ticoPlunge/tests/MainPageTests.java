@@ -13,6 +13,14 @@ import com.QA.fase3.ticoPlunge.Pages.MyProfilePAge;
 public class MainPageTests {
 	WebDriver driver;
 	MainPage MainPage;
+	String adminEmail = "TestAdmin@gmail.com";
+	String adminPassword = "1234.aD$%";
+	String staffEmail2 = "TestStaff2@gmail.com";
+	String staffPassword2 = "TestStaff2@gmail.com";
+	String staffEmail3 = "TestStaff3@gmail.com";
+	String staffPassword3 = "TestStaff3@gmail.com";
+	String testClientMail = "john@prueba.com";
+	String testClientPassword = "newPassword123!";
 	
 	@Before
 	public void setUp() {
@@ -52,7 +60,7 @@ public class MainPageTests {
 	@Test
 	public void StayLogged() throws InterruptedException {
 	MainPage.GoToLogIn();
-	MainPage.LogIn("TestAdmin@gmail.com", "1234.aD$%");
+	MainPage.LogIn(adminEmail, adminPassword);
 	MainPage.visit("https://www.facebook.com/profile.php?id=61553047905206");
 	Thread.sleep(500);
 	MainPage.visit("http://localhost:3000/");
@@ -64,7 +72,7 @@ public class MainPageTests {
 	@Test
 	public void LogOut() throws InterruptedException {
 	MainPage.GoToLogIn();
-	MainPage.LogIn("TestAdmin@gmail.com", "1234.aD$%");
+	MainPage.LogIn(adminEmail, adminPassword);
 	MainPage.LogOut();
 	Thread.sleep(1000);
 	assertTrue(MainPage.ItsLogOut());
@@ -73,7 +81,7 @@ public class MainPageTests {
 	public void SingInWithEmailAlreadyInUse() throws InterruptedException {
 	MainPage.visit("http://localhost:3000/SignIn");
 	
-	MainPage.SignIn("TestAdmin@gmail.com");
+	MainPage.SignIn(adminEmail);
 	Thread.sleep(1000);
 	assertTrue(MainPage.errorMsg());
 }

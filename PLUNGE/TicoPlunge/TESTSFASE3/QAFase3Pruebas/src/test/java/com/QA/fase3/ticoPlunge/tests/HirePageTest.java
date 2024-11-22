@@ -16,7 +16,14 @@ import com.QA.fase3.ticoPlunge.Pages.MyProfilePAge;
 public class HirePageTest {
 	WebDriver driver;
 	HirePage HirePage;
-	
+	String adminEmail = "TestAdmin@gmail.com";
+	String adminPassword = "1234.aD$%";
+	String staffEmail2 = "TestStaff2@gmail.com";
+	String staffPassword2 = "TestStaff2@gmail.com";
+	String staffEmail3 = "TestStaff3@gmail.com";
+	String staffPassword3 = "TestStaff3@gmail.com";
+	String testClientMail = "john@prueba.com";
+	String testClientPassword = "newPassword123!";
 	@Before
 	public void setUp() throws InterruptedException {
 		
@@ -26,11 +33,14 @@ public class HirePageTest {
 		driver.manage().window().maximize();
 		HirePage.visit("http://localhost:3000/");
 		HirePage.GoToLogIn();
-		HirePage.LogIn("TestAdmin@gmail.com", "1234.aD$%");
+		HirePage.LogIn(adminEmail, adminPassword);
 		HirePage.visit("http://localhost:3000/CreatePlan");
+		Thread.sleep(2000);
 		HirePage.createplan();
+		Thread.sleep(2000);
 		HirePage.visit("http://localhost:3000/");
 		HirePage.LogOut();
+		HirePage.visit("http://localhost:3000/");
 		HirePage.GoToLogIn();
 		HirePage.LogIn("john@prueba.com", "newPassword123!");
 	}
@@ -39,7 +49,7 @@ public class HirePageTest {
 		HirePage.LogOut();
 		HirePage.visit("http://localhost:3000/");
 		HirePage.GoToLogIn();
-		HirePage.LogIn("TestAdmin@gmail.com", "1234.aD$%");
+		HirePage.LogIn(adminEmail, adminPassword);
 		HirePage.visit("http://localhost:3000/CreatePlan");
 		HirePage.deleteplan();
 
@@ -50,10 +60,12 @@ public class HirePageTest {
 		HirePage.visit("http://localhost:3000/HirePlan");
 		try {
 			HirePage.hirePlan();
+			Thread.sleep(2000);
 			assertTrue(HirePage.itshired());
 
 		} catch (Exception e) {
 			fail();
+			System.out.println(e);
 		}
 		
 	}

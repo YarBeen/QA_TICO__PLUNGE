@@ -8,11 +8,23 @@ import org.openqa.selenium.WebDriver;
 import com.QA.fase3.ticoPlunge.base;
 
 public class LoginPagePlunge extends base{
-	public String adminEmail = "yarman2005@gmail.com";
+	
+	String staffEmail2 = "TestStaff2@gmail.com";
+	String staffPassword2 = "TestStaff2@gmail.com";
+	String staffEmail3 = "TestStaff3@gmail.com";
+	String staffPassword3 = "TestStaff3@gmail.com";
+	String testClientMail = "john@prueba.com";
+	String testClientPassword = "newPassword123!";
+	
+	
+	
+	
+	//Relevantes para la clase
+	public String adminEmail = "TestAdmin@gmail.com";
 	public String adminPassword = "1234.aD$%";
-	public String clientEmail = "yarman2006@gmail.com";
+	public String clientEmail = "TestClientA@gmail.com";
 	public String clientPassword = "1234.aD$%";
-	public String staffEmail = "yarman2007@gmail.com";
+	public String staffEmail = "TestStaffA@gmail.com";
 	public String staffPassword = "1234.aD$%";
 	By loginLinkLocator =By.xpath("/html/body/div/div/div/div[1]/div/div[2]/a");
 	By emailLocator = By.name("email");

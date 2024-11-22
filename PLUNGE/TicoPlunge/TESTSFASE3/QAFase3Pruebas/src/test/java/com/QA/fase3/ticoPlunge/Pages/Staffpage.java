@@ -72,7 +72,7 @@ public class Staffpage extends base{
     
     private By editClassAlreadyCustomersError = By.xpath("/html/body/div/div/div/div[2]/span/div/div[1]/div");
     private By editButton = By.xpath("/html/body/div/div/div/div[2]/span/div/div[2]/div[2]/div/span/button[1]");
-    
+  
     private By saveChangesButton = By.xpath("/html/body/div[3]/div/div/div[2]/form/div[2]/button[1]");
     private By NoCreditsError = By.xpath("/html/body/div/div/div/div[2]/span/div/div[1]/div/div/div[2]");
 
@@ -108,8 +108,10 @@ public class Staffpage extends base{
         WebElement editClassButton = driver.findElement(editButton);
 
     	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", editClassButton);
-        Thread.sleep(100);
-        editClassButton.click();
+        Thread.sleep(1000);
+        click(editClassButton);
+        //editClassButton.click();
+        Thread.sleep(1000);
         click(saveChangesButton);
         
         
@@ -143,9 +145,9 @@ public class Staffpage extends base{
         WebElement deleteButton = driver.findElement(deleteClassButton);
 
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", deleteButton);
-        Thread.sleep(100);
+        Thread.sleep(2000);
         deleteButton.click();
-
+        Thread.sleep(2000);
         Alert alert = driver.switchTo().alert();
         alert.accept();
     }
@@ -154,11 +156,17 @@ public class Staffpage extends base{
 
     public void createClass() throws InterruptedException {
     	click(classActivitybutton);
+    	Thread.sleep(2000);
     	click(classActivityOption);
+    	Thread.sleep(2000);
     	click(classStaffbutton);
+    	Thread.sleep(2000);
     	click(classStaffOption);
+    	Thread.sleep(2000);
     	type("13122024",date);
-    	type("1111",time);
+    	Thread.sleep(2000);
+    	type("1111Am",time);
+    	Thread.sleep(2000);
     	type("1",space);
 
     	 WebElement spaceElement = driver.findElement(space);
@@ -180,11 +188,14 @@ public class Staffpage extends base{
     	Alert alert = driver.switchTo().alert();
     	alert.accept();
 	}
-    public void createService() {
+    public void createService() throws InterruptedException {
     	type("ServiceTest",servicename);
     	click(selectStaff);
+    	Thread.sleep(2000);
     	click(firstStaff);
+    	Thread.sleep(2000);
     	click(createServiceBotton);
+    	Thread.sleep(2000);
     	Alert alert = driver.switchTo().alert();
     	alert.accept();
 	}

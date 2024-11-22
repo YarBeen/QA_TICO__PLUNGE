@@ -206,6 +206,7 @@ public class FeedBackTest {
         
 	}
 	@Test
+	//FALLA
 	public void staffCanSubmitPrivateFeedBack() throws InterruptedException {
 		feedBackPage.clickLoginLink();
 		Thread.sleep(2000);
@@ -223,26 +224,12 @@ public class FeedBackTest {
 		assertTrue(feedBackPage.isSuccessSubmitFeedbackDisplayed());
 		
 		
-		//assertEquals("Lista de Usuarios",feedBackPage.getListaUsuariosLinkText());
+		
         
 	}
 	
 
-/*	@Test
-	public void CantCreateEmptyUser() throws InterruptedException {
-		adminDashBoard.SignInAsAdmin();
-        Thread.sleep(2000);
-        adminDashBoard.clickUserBtn();
-        Thread.sleep(2000);
-        adminDashBoard.clickAllUsersBtn();
-        Thread.sleep(2000);
-        adminDashBoard.clickAddUserBtn();
-        Thread.sleep(2000);
-        adminDashBoard.clickSaveUserBtn();
-        Thread.sleep(2000);
-        assertEquals("Some fields are likely to contain errors. Fix errors and try again.",adminDashBoard.getErrorSaveUserText());
-        
-	}*/
+
 	
 
 }

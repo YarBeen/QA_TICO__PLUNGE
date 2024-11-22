@@ -39,6 +39,7 @@ public class HirePage extends base{
     
     private By createPlanButton = By.xpath("/html/body/div/div/div/div[2]/div[1]/form/button");
     
+    
     private By hireButton = By.xpath("/html/body/div/div/div/div[2]/div[2]/div[1]/button");
     private By confirmationButton = By.xpath("/html/body/div[3]/div/div/div[3]/button[2]");
 
@@ -52,9 +53,11 @@ public class HirePage extends base{
 public boolean itshired() {
 	return isDisplayed(confirmationMsg);
 }
-public void hirePlan() {
+public void hirePlan() throws InterruptedException {
     try {
+    	Thread.sleep(2000);
         click(hireButton);
+        Thread.sleep(2000);	
 
         click(confirmationButton);
         
@@ -65,6 +68,7 @@ public void hirePlan() {
             
             alert.accept();
         } catch (NoAlertPresentException ex) {
+        	System.out.println(ex);
             System.out.println("No se encontró una alerta abierta después de la excepción.");
         }
     }

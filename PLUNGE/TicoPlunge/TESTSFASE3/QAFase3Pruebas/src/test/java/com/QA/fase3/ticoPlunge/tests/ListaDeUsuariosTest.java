@@ -15,8 +15,15 @@ public class ListaDeUsuariosTest {
     WebDriver driver;
     ListaDeUsuariosPage listaDeUsuariosPage;
     LoginAdmin loginAdmin;
-    String adminEmail = "";
-	String adminPassword = "";
+   
+	String adminEmail = "TestAdmin@gmail.com";
+	String adminPassword = "1234.aD$%";
+	String staffEmail2 = "TestStaff2@gmail.com";
+	String staffPassword2 = "TestStaff2@gmail.com";
+	String staffEmail3 = "TestStaff3@gmail.com";
+	String staffPassword3 = "TestStaff3@gmail.com";
+	String testClientMail = "john@prueba.com";
+	String testClientPassword = "newPassword123!";
 
     @Before
     public void setUp() {

@@ -2,6 +2,7 @@ package com.QA.fase3.ticoPlunge.Pages;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -34,6 +35,7 @@ public class ClassPagePlunge extends LoginPagePlunge{
 	By createClassLinkLocator = By.xpath("/html/body/div/div/div/div[1]/div/div[6]/a");
 	By successCreateClassLocator = By.xpath("/html/body/div/div/div/div[2]/span/div/div/form/div[9]/div/div[2]");
 	By createClassBtnLocator = By.xpath("/html/body/div/div/div/div[2]/span/div/div/form/button");
+	
 	By serviceLinkLocator = By.xpath("/html/body/div/div/div/div[1]/div/div[8]/a");
 	By serviceNameTextBoxLocator = By.id("inputName");
 	By inputEncargadoLocator = By.id("inputEncargado");
@@ -64,8 +66,27 @@ public class ClassPagePlunge extends LoginPagePlunge{
 		return isDisplayed(successCreateClassLocator);
 	}
 
-	public void clickCreateClassBtn() {
-		click(createClassBtnLocator);
+	public void clickCreateClassBtn() throws InterruptedException {
+		if (isDisplayed(createClassBtnLocator)) {
+			click(createClassBtnLocator);
+		}
+		else {
+			Thread.sleep(2000);
+			clickCreateClassBtn();
+		}
+	}
+
+	public boolean isCreateClassBtnEnabled() throws InterruptedException {
+		WebElement button = driver.findElement(createClassBtnLocator);
+		
+		try {
+	        click(createClassBtnLocator); // Intentar hacer clic
+	        Thread.sleep(2000); // Espera breve para validar el comportamiento
+	    } catch (ElementClickInterceptedException e) {
+	        System.out.println("Clic interceptado: el formulario tiene validaciones.");
+	        return true;
+	    }
+		return false;
 	}
 
 	public void clickServiceLink() {

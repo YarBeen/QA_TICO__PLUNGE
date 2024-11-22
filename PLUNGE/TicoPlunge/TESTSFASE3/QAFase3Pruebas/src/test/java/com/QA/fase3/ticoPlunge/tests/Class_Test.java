@@ -35,10 +35,9 @@ public class Class_Test {
 		classPage.SignInAsAdmin();
 		Thread.sleep(2000);
 		classPage.clickCreateClassLink();
-		Thread.sleep(3000);
-		classPage.clickCreateClassBtn();
 		Thread.sleep(2000);
-		assertFalse(classPage.isSuccessCreateClassDisplayed());
+		
+		assertTrue(classPage.isCreateClassBtnEnabled());
         
 	}
 	@Test

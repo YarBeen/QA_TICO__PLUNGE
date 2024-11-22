@@ -13,7 +13,14 @@ import com.QA.fase3.ticoPlunge.Pages.MyProfilePAge;
 public class MyProfileTests {
 	WebDriver driver;
 	MyProfilePAge MyProfilePAge;
-	
+	String adminEmail = "TestAdmin@gmail.com";
+	String adminPassword = "1234.aD$%";
+	String staffEmail2 = "TestStaff2@gmail.com";
+	String staffPassword2 = "TestStaff2@gmail.com";
+	String staffEmail3 = "TestStaff3@gmail.com";
+	String staffPassword3 = "TestStaff3@gmail.com";
+	String testClientMail = "john@prueba.com";
+	String testClientPassword = "newPassword123!";
 	@Before
 	public void setUp() throws InterruptedException {
 		
@@ -23,7 +30,7 @@ public class MyProfileTests {
 		driver.manage().window().maximize();
 		MyProfilePAge.visit("http://localhost:3000/");
 		MyProfilePAge.GoToLogIn();
-		MyProfilePAge.LogIn("john@prueba.com", "newPassword123!");
+		MyProfilePAge.LogIn(testClientMail, testClientPassword);
 
 	}
 	
